@@ -16,6 +16,8 @@ export type User = {
   setUser: Dispatch<SetStateAction<string | null>>;
   openMenu: boolean;
   setOpenMenu: Dispatch<SetStateAction<boolean>>;
+  isModalOpen: boolean;
+  setIsModalOpen: Dispatch<SetStateAction<boolean>>;
 };
 
 export const AuthContext = createContext<User | null>(null);
@@ -27,6 +29,7 @@ type AuthProviderProp = {
 export default function AuthContextProvider({ children }: AuthProviderProp) {
   const [user, setUser] = useState<string | null>(null);
   const [openMenu, setOpenMenu] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const currentUser = localStorage.getItem("user");
@@ -35,7 +38,16 @@ export default function AuthContextProvider({ children }: AuthProviderProp) {
   }, [user]);
 
   return (
-    <AuthContext.Provider value={{ user, setUser, openMenu, setOpenMenu }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        setUser,
+        openMenu,
+        setOpenMenu,
+        setIsModalOpen,
+        isModalOpen,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
