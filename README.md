@@ -1,36 +1,64 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Purchase Order Overview Dashboard
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The Purchase Order Overview Dashboard is a web application built using Next.js, TypeScript, and Tailwind CSS. It provides users with an intuitive dashboard to manage purchase orders. This project offers a user-friendly interface, easy navigation, and a seamless login experience. Users can access their dashboard, see their username displayed at the top, and easily navigate through different sections to view purchase order data.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Live Demo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
+You can access the live application on Vercel at the following link: [Live Demo](https://advancely-assessment.vercel.app/)
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* User-friendly interface
+* Login system with username input
+* Dashboard displaying user's name
+* Sidebar for easy navigation
+* Logout functionality
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Getting Started
 
-## Deploy on Vercel
+Follow these steps to get your project up and running.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Prerequisites
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Make sure you have the following prerequisites installed on your system:
+
+1. Clone the repository to your local machine:
+  git clone https://github.com/yourusername/purchase-order-dashboard.git
+
+2. Install the project dependencies:
+  cd purchase-order-dashboard
+  npm install
+
+3. Run the development server:
+  npm run dev
+
+4. Open your web browser and go to http://localhost:3000 to view the application.
+
+
+## Usage
+
+* Access the homepage to start:
+
+  * Enter your username in the input form.
+  * Click "Submit" to proceed.
+* You'll be automatically routed to the dashboard page, where you'll see your provided username displayed at the top.
+
+* Use the sidebar for navigation between different sections of the dashboard.
+
+* To log out, click the "Logout" button, and you'll be redirected to the homepage.
+
+* You'll need to provide your username again to sign in to your dashboard.
+
+
+
+## Technology Stack
+
+* Next.js
+* TypeScript
+* Tailwind CSS
+
