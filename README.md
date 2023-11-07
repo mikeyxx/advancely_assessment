@@ -8,7 +8,7 @@ The Purchase Order Overview Dashboard is a web application built using Next.js, 
 
 ## Live Demo
 
-You can access the live application on Vercel at the following link: [Live Demo](https://advancely-assessment.vercel.app/)
+You can access the live application on Vercel at the following link: [Purchase Order Dashboard](https://advancely-assessment.vercel.app/)
 ## Learn More
 
 ## Features
