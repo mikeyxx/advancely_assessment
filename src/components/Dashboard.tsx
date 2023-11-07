@@ -32,7 +32,7 @@ function Dashboard() {
             <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 h-full">
               <div className="row-span-2 border p-4 rounded-lg">
                 <div className="flex items-center justify-between">
-                  <FiDollarSign className="bg-blue-200 h-8 w-8 p-2 cursor-pointer rounded-full" />
+                  <FiDollarSign className="bg-blue-200 h-8 w-8 p-2 cursor-pointer rounded-full text-blue-700" />
                   <select>
                     <option>Monthly</option>
                     <option>Weekly</option>
