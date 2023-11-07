@@ -14,7 +14,7 @@ function SuccessOrderModal() {
   return (
     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
       <div
-        className="bg-white p-8 max-w-[200px] h-[280px] border rounded-lg"
+        className="bg-white p-8 max-w-[300px] h-[280px] border rounded-lg"
         style={{
           position: "absolute",
           left: "100px",
