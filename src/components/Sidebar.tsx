@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthContext } from "@/context/AuthContext";
 import { AiOutlineHome } from "react-icons/ai";
@@ -14,11 +14,52 @@ import { usePathname } from "next/navigation";
 function Sidebar() {
   const router = useRouter();
   const pathname = usePathname();
-  const { openMenu } = useAuthContext();
+  const { openMenu, setSelectedItem, selectedItem } = useAuthContext();
+
+  const handleMenuItemClick = (item: string) => {
+    // Update the selected item when a menu item is clicked
+    setSelectedItem(item);
+  };
+
   const handleLogout = () => {
     router.push("/");
     localStorage.removeItem("user");
   };
+
+  const menuItemItems = [
+    {
+      text: "Home",
+      icon: <AiOutlineHome />,
+    },
+    {
+      text: "Cart",
+      icon: <BsCart2 />,
+    },
+    {
+      text: "Box",
+      icon: <TbBox />,
+    },
+    {
+      text: "Files",
+      icon: <FiFileText />,
+    },
+    {
+      text: "Buyer Analytics Overview",
+      icon: <PiLockersBold />,
+    },
+    {
+      text: "Truck",
+      icon: <BsTruck />,
+    },
+    {
+      text: "Stack",
+      icon: <PiStackSimple />,
+    },
+    {
+      text: "User",
+      icon: <PiUserCircle />,
+    },
+  ];
 
   return (
     <div className="w-[70px]">
@@ -29,23 +70,19 @@ function Sidebar() {
           } flex flex-col justify-between w-full`}
         >
           <div className="p-4 flex flex-col gap-4">
-            <AiOutlineHome className="hover:bg-blue-200 h-8 w-8 p-2 cursor-pointer rounded-lg" />
-
-            <BsCart2 className="hover:bg-blue-200 h-8 w-8 p-2 cursor-pointer rounded-lg" />
-
-            <TbBox className="hover:bg-blue-200 h-8 w-8 p-2 cursor-pointer rounded-lg" />
-
-            <FiFileText className="hover:bg-blue-200 h-8 w-8 p-2 cursor-pointer rounded-lg" />
-
-            <PiLockersBold
-              className={`hover:bg-blue-200 ${
-                pathname === "/dashboard" && "bg-blue-200"
-              } h-8 w-8 p-2 cursor-pointer rounded-lg`}
-            />
-
-            <BsTruck className="hover:bg-blue-200 h-8 w-8 p-2 cursor-pointer rounded-lg" />
-            <PiStackSimple className="hover:bg-blue-200 h-8 w-8 p-2 cursor-pointer rounded-lg" />
-            <PiUserCircle className="hover:bg-blue-200 h-8 w-8 p-2 cursor-pointer rounded-lg" />
+            {menuItemItems.map((menuItem, index) => (
+              <div
+                key={index}
+                onClick={() => handleMenuItemClick(menuItem.text)}
+                className={`${
+                  pathname === "/dashboard" && selectedItem === menuItem.text
+                    ? "bg-blue-200"
+                    : ""
+                } hover:bg-blue-200 h-8 w-8 p-2 cursor-pointer rounded-lg`}
+              >
+                {menuItem.icon}
+              </div>
+            ))}
           </div>
           <div
             className="p-4 h-full w-full"

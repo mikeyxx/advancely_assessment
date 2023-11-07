@@ -18,6 +18,8 @@ export type User = {
   setOpenMenu: Dispatch<SetStateAction<boolean>>;
   isModalOpen: boolean;
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+  selectedItem: string;
+  setSelectedItem: Dispatch<SetStateAction<string>>;
 };
 
 export const AuthContext = createContext<User | null>(null);
@@ -30,6 +32,7 @@ export default function AuthContextProvider({ children }: AuthProviderProp) {
   const [user, setUser] = useState<string | null>(null);
   const [openMenu, setOpenMenu] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState("Buyer Analytics Overview"); // Initialize the selected item
 
   useEffect(() => {
     const currentUser = localStorage.getItem("user");
@@ -46,6 +49,8 @@ export default function AuthContextProvider({ children }: AuthProviderProp) {
         setOpenMenu,
         setIsModalOpen,
         isModalOpen,
+        selectedItem,
+        setSelectedItem,
       }}
     >
       {children}

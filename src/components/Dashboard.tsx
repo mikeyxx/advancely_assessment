@@ -14,9 +14,12 @@ import { PiShoppingBagOpenFill } from "react-icons/pi";
 import { FaFileInvoiceDollar } from "react-icons/fa";
 import { AiFillBank } from "react-icons/ai";
 import { RiPriceTagFill } from "react-icons/ri";
+import LineChart from "@/utils/LineChart";
+import BarList from "@/utils/BarList";
+import BarChart from "@/utils/BarChart";
 
 function Dashboard() {
-  const { openMenu } = useAuthContext();
+  const { openMenu, selectedItem } = useAuthContext();
 
   return (
     <div className="w-[90vw] h-[90vh] rounded-lg flex flex-col overflow-hidden">
@@ -32,7 +35,7 @@ function Dashboard() {
           <div className="flex items-center gap-4 mb-4">
             <MdKeyboardArrowLeft className="h-6 w-6 bg-blue-800 text-white rounded-full" />
 
-            <h1 className="font-semibold">Buyer Analytics Overview</h1>
+            <h1 className="font-semibold">{selectedItem}</h1>
           </div>
           <div className="bg-white p-4 w-full flex gap-4 flex-col h-[calc(100vh-220px)] rounded-md overflow-y-scroll">
             <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 h-full">
@@ -56,6 +59,7 @@ function Dashboard() {
                     </div>
                   </div>
                 </div>
+                <LineChart />
               </div>
 
               <div className="box border p-4 rounded-lg">
@@ -122,6 +126,8 @@ function Dashboard() {
 
                   <p className="text-xl">50457</p>
                 </div>
+
+                <BarList />
               </div>
               <div className="box border p-4 rounded-lg">
                 <RiPriceTagFill className="bg-blue-200 h-8 w-8 p-2 cursor-pointer rounded-full text-blue-700" />
@@ -141,6 +147,7 @@ function Dashboard() {
                     </div>
                   </div>
                 </div>
+                <BarChart />
               </div>
             </div>
           </div>
