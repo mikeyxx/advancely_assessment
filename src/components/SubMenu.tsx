@@ -9,7 +9,6 @@ import { BsCheck2Circle } from "react-icons/bs";
 import { PiShoppingBagOpenFill } from "react-icons/pi";
 import { TbBox } from "react-icons/tb";
 import { FiDollarSign } from "react-icons/fi";
-import SuccessOrderModal from "@/utils/SuccessOrderModal";
 import { useAuthContext } from "@/context/AuthContext";
 
 function SubMenu() {
