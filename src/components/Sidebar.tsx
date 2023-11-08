@@ -15,7 +15,8 @@ function Sidebar() {
   const router = useRouter();
   const pathname = usePathname();
   const { openMenu, setSelectedItem, selectedItem } = useAuthContext();
-
+  const [isHovered, setIsHovered] = useState(false);
+  const [hoveredText, setHoveredText] = useState("");
   const handleMenuItemClick = (item: string) => {
     // Update the selected item when a menu item is clicked
     setSelectedItem(item);
@@ -24,6 +25,17 @@ function Sidebar() {
   const handleLogout = () => {
     router.push("/");
     localStorage.removeItem("user");
+  };
+
+  const handleIconHover = (itemText: string) => {
+    setIsHovered(true);
+    setHoveredText(itemText);
+  };
+
+  // Event handler when mouse leaves the icon
+  const handleIconLeave = () => {
+    setIsHovered(false);
+    setHoveredText("");
   };
 
   const menuItemItems = [
@@ -62,7 +74,7 @@ function Sidebar() {
   ];
 
   return (
-    <div className="w-[70px]">
+    <div className="w-[70px] relative">
       <div className="flex h-full w-full">
         <div
           className={`${
@@ -74,13 +86,20 @@ function Sidebar() {
               <div
                 key={index}
                 onClick={() => handleMenuItemClick(menuItem.text)}
-                className={`${
+                onMouseEnter={() => handleIconHover(menuItem.text)} // Handle mouse enter
+                onMouseLeave={handleIconLeave} // Handle mouse leave
+                className={`relative ${
                   pathname === "/dashboard" && selectedItem === menuItem.text
                     ? "bg-blue-200"
                     : ""
-                } hover:bg-blue-200 h-8 w-8 p-2 cursor-pointer rounded-lg`}
+                } hover:bg-blue-200 h-8 w-8 p-2 cursor-pointer rounded-lg relative`}
               >
                 {menuItem.icon}
+                {isHovered && hoveredText === menuItem.text && (
+                  <div className="absolute bg-black text-white w-fit h-fit p-2 rounded-xl whitespace-nowrap left-14 top-0">
+                    {menuItem.text}
+                  </div>
+                )}
               </div>
             ))}
           </div>
