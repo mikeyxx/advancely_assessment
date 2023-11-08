@@ -18,7 +18,6 @@ function Sidebar() {
   const [isHovered, setIsHovered] = useState(false);
   const [hoveredText, setHoveredText] = useState("");
   const handleMenuItemClick = (item: string) => {
-    // Update the selected item when a menu item is clicked
     setSelectedItem(item);
   };
 
@@ -32,7 +31,6 @@ function Sidebar() {
     setHoveredText(itemText);
   };
 
-  // Event handler when mouse leaves the icon
   const handleIconLeave = () => {
     setIsHovered(false);
     setHoveredText("");
@@ -86,8 +84,8 @@ function Sidebar() {
               <div
                 key={index}
                 onClick={() => handleMenuItemClick(menuItem.text)}
-                onMouseEnter={() => handleIconHover(menuItem.text)} // Handle mouse enter
-                onMouseLeave={handleIconLeave} // Handle mouse leave
+                onMouseEnter={() => handleIconHover(menuItem.text)}
+                onMouseLeave={handleIconLeave}
                 className={`relative ${
                   pathname === "/dashboard" && selectedItem === menuItem.text
                     ? "bg-blue-200"
