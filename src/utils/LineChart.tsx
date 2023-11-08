@@ -24,7 +24,7 @@ function LineChart() {
     ],
   };
 
-  const options = {
+  const options: any = {
     plugins: { legend: { display: false } },
     scales: {
       x: {
@@ -36,7 +36,7 @@ function LineChart() {
         min: 0,
         max: 30,
         ticks: {
-          callback: (value: any) => value + "k",
+          callback: (value: number) => value + "k",
         },
       },
     },

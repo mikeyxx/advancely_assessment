@@ -30,12 +30,14 @@ function SuccessOrderModal() {
               alt="Order confirmation"
             />
             <p className="text-sm">Order is successfully created</p>
-            <small className="text-center">Your order is completed.</small>
-            <small className="text-center">
+            <small className="text-center text-gray-400">
+              Your order is completed.
+            </small>
+            <small className="text-center text-gray-400">
               Now you will get a confirmation email
             </small>
             <button
-              className="w-full bg-blue-500 text-white py-2 rounded"
+              className="w-full bg-blue-500 text-white py-2 rounded uppercase"
               onClick={closeModal}
             >
               Go back now

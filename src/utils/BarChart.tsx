@@ -28,7 +28,7 @@ function BarChart() {
     datasets: [
       {
         label: "Visits",
-        data: [0, 5, 15, 25, 35, 45, -5, -15, -25, -35, -45, -55], // Use negative values for "July" to "Dec"
+        data: [0, 5, 15, 25, 35, 45, -5, -15, -25, -35, -45, -55],
         backgroundColor: [
           "green",
           "green",
@@ -47,7 +47,7 @@ function BarChart() {
     ],
   };
 
-  const options = {
+  const options: any = {
     plugins: { legend: { display: false } },
     scales: {
       x: {
@@ -57,9 +57,9 @@ function BarChart() {
       },
       y: {
         min: 0,
-        max: 50, // Adjust the maximum value as needed
+        max: 50,
         ticks: {
-          callback: (value: any) => "$" + value + "k",
+          callback: (value: number) => "$" + value + "k",
         },
       },
     },
